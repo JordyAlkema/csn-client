@@ -12,6 +12,7 @@ class Light(object):
 
 
     def on(self):
+        print("power on for GPIO " + str(self.GPIOPin))
         GPIO.output(self.GPIOPin, GPIO.HIGH)
         self.state = True
 
