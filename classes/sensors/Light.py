@@ -8,6 +8,7 @@ class Light(object):
         GPIO.setmode(GPIO.BCM)
         GPIO.setwarnings(False)
         GPIO.setup(GPIOPin, GPIO.OUT)
+        GPIO.output(GPIOPin, GPIO.LOW)
 
 
     def on(self):
