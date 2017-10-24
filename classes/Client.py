@@ -75,8 +75,8 @@ class Client(object):
         if self.button.isBeingClicked():
             if self.alarmStatus:
                 self.lightGreen.on()
-                self.alarmStatus == True
+                self.alarmStatus = True
             else:
                 self.lightGreen.off()
-                self.alarmStatus == False
+                self.alarmStatus = False
 
