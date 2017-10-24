@@ -12,9 +12,6 @@ config.read("config.ini")
 client = Client.Client(config)
 #client.signOn()
 
-orange = Light.Light(20)
-orange.on()
-
 scheduler = BlockingScheduler()
 
 heartbeat = scheduler.add_job(client.heartbeat, 'interval', seconds=2.5)

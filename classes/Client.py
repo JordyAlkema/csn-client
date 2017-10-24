@@ -1,6 +1,8 @@
 import requests
 import datetime
 import time
+from classes.sensors import Light
+
 from classes import Server
 
 class Client(object):
@@ -8,6 +10,26 @@ class Client(object):
     def __init__(self, config):
         self.config = config
         self.server = Server.Server(config.get('Server', 'httpAddress'))
+
+        self.lightRed = Light.Light(20)
+        self.lightOrange = Light.Light(21)
+        self.lightGreen = Light.Light(16)
+
+        self.initLights()
+
+    def initLights(self):
+
+        self.lightRed.on()
+        time.sleep(0,2)
+        self.lightOrange.on()
+        time.sleep(0,2)
+        self.lightGreen.on()
+        time.sleep(1)
+        self.lightRed.off()
+        time.sleep(0,2)
+        self.lightOrange.off()
+        time.sleep(0,2)
+        self.lightGreen.off()
 
     def signOn(self):
         send = {
