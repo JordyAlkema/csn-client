@@ -5,7 +5,7 @@ class Light(object):
     def __init__(self, GPIOPin):
         self.GPIOPin = GPIOPin
         self.state = False
-        GPIO.setmode(GPIO.BOARD)
+        GPIO.setmode(GPIO.BCM)
         GPIO.setwarnings(False)
         GPIO.setup(GPIOPin, GPIO.OUT)
         GPIO.output(GPIOPin, GPIO.LOW)
