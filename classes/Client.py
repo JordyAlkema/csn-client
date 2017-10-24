@@ -30,7 +30,6 @@ class Client(object):
         self.lightRed.off()
         self.lightOrange.off()
         self.lightGreen.off()
-        time.sleep(0.5)
 
 
 
@@ -61,12 +60,9 @@ class Client(object):
         error = False
 
         try:
-            self.lightRed.on()
             request = self.server.post('/heartbeat', send)
-            self.lightRed.off()
         except:
             error = True
-            self.lightRed.off()
 
         if error or request.status_code != 200:
             print('Heartbeat: Server responded with an error code')
