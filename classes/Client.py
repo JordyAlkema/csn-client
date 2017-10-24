@@ -29,6 +29,12 @@ class Client(object):
 
         self.lightGreen.clear()
 
+        time.sleep(0.5)
+
+        self.lightGreen.on()
+
+
+
     def signOn(self):
         send = {
             'client': self.config.get('Client', 'clientKey'),
@@ -56,9 +62,12 @@ class Client(object):
         error = False
 
         try:
+            self.lightRed.on()
             request = self.server.post('/heartbeat', send)
+            self.lightRed.off()
         except:
             error = True
+            self.lightRed.off()
 
         if error or request.status_code != 200:
             print('Heartbeat: Server responded with an error code')
