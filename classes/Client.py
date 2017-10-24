@@ -1,6 +1,7 @@
 import requests
 import datetime
 import time
+import RPi.GPIO as GPIO
 from classes.sensors import Light
 from classes.sensors import Button
 
@@ -12,6 +13,7 @@ class Client(object):
         self.config = config
         self.server = Server.Server(config.get('Server', 'httpAddress'))
         self.alarmStatus = False
+        GPIO.cleanup()
 
         self.lightRed = Light.Light(20)
         self.lightOrange = Light.Light(21)
