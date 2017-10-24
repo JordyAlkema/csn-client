@@ -73,7 +73,7 @@ class Client(object):
 
     def alarmButton(self):
         if self.button.isBeingClicked():
-            if self.alarmStatus:
+            if self.alarmStatus == False:
                 print('Armed')
                 self.lightGreen.on()
                 self.alarmStatus = True
