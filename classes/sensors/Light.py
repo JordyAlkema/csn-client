@@ -1,4 +1,4 @@
-import RPi.GPIO AS GPIO
+import RPi.GPIO as GPIO
 
 class Light(object):
 
