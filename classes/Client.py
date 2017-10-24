@@ -73,9 +73,11 @@ class Client(object):
             if self.alarmStatus == False:
                 print('Armed')
                 self.lightGreen.on()
+                self.lightOrange.off()
                 self.alarmStatus = True
             else:
                 print('Disarmed')
                 self.lightGreen.off()
+                self.lightOrange.on()
                 self.alarmStatus = False
 
