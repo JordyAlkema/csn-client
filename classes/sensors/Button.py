@@ -16,6 +16,6 @@ class Button(object):
 
     def isBeingClicked(self):
         input_state = GPIO.input(self.GPIOPin)
-        if input_state:
+        if input_state == False:
             print('Clicked')
             self.clicked = True
