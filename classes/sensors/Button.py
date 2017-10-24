@@ -5,7 +5,7 @@ class Button(object):
         self.GPIOPin = GPIOPin
         GPIO.setmode(GPIO.BCM)
         GPIO.setwarnings(False)
-        GPIO.setup(GPIOPin, pull_up_down=GPIO.PUD_UP)
+        GPIO.setup(GPIOPin, GPIO.IN, pull_up_down=GPIO.PUD_UP)
 
     def hasBeenClicked(self):
         if self.clicked == True:
