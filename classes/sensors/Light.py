@@ -23,3 +23,6 @@ class Light(object):
             self.off()
         else:
             self.on()
+
+    def clear(self):
+        GPIO.cleanup()
