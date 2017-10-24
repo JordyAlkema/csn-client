@@ -17,6 +17,7 @@ class Light(object):
         self.state = True
 
     def off(self):
+        print("power off for GPIO " + str(self.GPIOPin))
         GPIO.output(self.GPIOPin, GPIO.LOW)
         self.state = False
 
