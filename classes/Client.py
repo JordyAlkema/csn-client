@@ -20,16 +20,18 @@ class Client(object):
     def initLights(self):
 
         self.lightRed.on()
-        time.sleep(0.2)
+        time.sleep(0.5)
         self.lightOrange.on()
-        time.sleep(0.2)
+        time.sleep(0.5)
         self.lightGreen.on()
         time.sleep(1)
         self.lightRed.off()
-        time.sleep(0.2)
+        time.sleep(0.5)
         self.lightOrange.off()
-        time.sleep(0.2)
+        time.sleep(0.5)
         self.lightGreen.off()
+
+        self.lightGreen.clear()
 
     def signOn(self):
         send = {
