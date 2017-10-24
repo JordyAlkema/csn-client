@@ -26,11 +26,7 @@ class Client(object):
         self.lightRed.off()
         self.lightOrange.off()
         self.lightGreen.off()
-
-        self.lightGreen.clear()
-
         time.sleep(0.5)
-
         self.lightGreen.on()
 
 
