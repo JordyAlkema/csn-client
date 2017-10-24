@@ -2,6 +2,7 @@ import requests
 import datetime
 import time
 from classes.sensors import Light
+from classes.sensors import Button
 
 from classes import Server
 
@@ -10,10 +11,13 @@ class Client(object):
     def __init__(self, config):
         self.config = config
         self.server = Server.Server(config.get('Server', 'httpAddress'))
+        self.alarmStatus = False
 
         self.lightRed = Light.Light(20)
         self.lightOrange = Light.Light(21)
         self.lightGreen = Light.Light(16)
+
+        self.button = Button.Button(23)
 
         self.initLights()
 
@@ -27,7 +31,6 @@ class Client(object):
         self.lightOrange.off()
         self.lightGreen.off()
         time.sleep(0.5)
-        self.lightGreen.on()
 
 
 
@@ -67,3 +70,13 @@ class Client(object):
 
         if error or request.status_code != 200:
             print('Heartbeat: Server responded with an error code')
+
+    def alarmButton(self):
+        if self.button.isBeingClicked():
+            if self.alarmStatus:
+                self.lightGreen.on()
+                self.alarmStatus == True
+            else:
+                self.lightGreen.off()
+                self.alarmStatus == False
+
