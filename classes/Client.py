@@ -1,6 +1,7 @@
 import time
 from classes.sensors import Light
 from classes.sensors import Button
+from classes import Alarm
 
 from classes import Server
 
@@ -10,6 +11,7 @@ class Client(object):
         self.config = config
         self.server = Server.Server(config)
         self.alarmStatus = False
+        self.alarm = Alarm.Alarm()
 
         self.lightRed = Light.Light(20)
         self.lightOrange = Light.Light(21)
@@ -40,10 +42,7 @@ class Client(object):
         if self.buttonBlack.isBeingClicked():
             if self.alarmStatus == True:
                 print('Alarm is triggered')
-                self.lightOrange.on()
-                time.sleep(3)
-                self.lightOrange.off()
-                self.lightRed.on()
+                self.alarm.trigger()
 
         if self.buttonBlue.isBeingClicked():
             if self.alarmStatus == False:
