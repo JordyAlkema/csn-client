@@ -38,7 +38,12 @@ class Client(object):
     def alarmButton(self):
 
         if self.buttonBlack.isBeingClicked():
-            print('Alarm is triggered')
+            if self.alarmStatus == True:
+                print('Alarm is triggered')
+                self.lightOrange.on()
+                time.sleep(3)
+                self.lightOrange.off()
+                self.lightRed.on()
 
         if self.buttonBlue.isBeingClicked():
             if self.alarmStatus == False:
