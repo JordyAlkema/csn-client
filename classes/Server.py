@@ -9,9 +9,9 @@ class Server(object):
         self.http = config.get('Server', 'httpAddress')
         self.port = config.get('Server', 'port')
 
-        self.socket = SocketIO(self.http, self.port, params={
-            'client_id': self.clientID
-        })
+        # self.socket = SocketIO(self.http, self.port, params={
+        #    'client_id': self.clientID
+        # })
 
     def alarm(self, status):
         self.socket.emit('alarm', {

@@ -27,21 +27,20 @@ class Client(object):
         self.lightRed.on()
         self.lightOrange.on()
         self.lightGreen.on()
+        self.lightBlue.on()
         time.sleep(2)
         self.lightRed.off()
         self.lightOrange.off()
         self.lightGreen.off()
+        self.lightBlue.off()
 
 
     def alarmButton(self):
 
         if self.buttonBlack.isBeingClicked():
-            print('Black is being pressed')
+            print('Alarm is triggered')
 
         if self.buttonBlue.isBeingClicked():
-            print('Blue is being pressed')
-
-        if self.button.isBeingClicked():
             if self.alarmStatus == False:
                 print('Armed')
                 self.lightGreen.on()
