@@ -14,8 +14,11 @@ class Client(object):
         self.lightRed = Light.Light(20)
         self.lightOrange = Light.Light(21)
         self.lightGreen = Light.Light(16)
+        self.lightBlue = Light.Light(12)
 
         self.button = Button.Button(23)
+        self.buttonBlack = Button.Button(26)
+        self.buttonBlue = Button.Button(19)
 
         self.initLights()
 
@@ -31,15 +34,20 @@ class Client(object):
 
 
     def alarmButton(self):
+
+        if self.buttonBlack.isBeingClicked():
+            print('Black is being pressed')
+
+        if self.buttonBlue.isBeingClicked():
+            print('Blue is being pressed')
+
         if self.button.isBeingClicked():
             if self.alarmStatus == False:
                 print('Armed')
                 self.lightGreen.on()
-                self.lightOrange.off()
                 self.alarmStatus = True
             else:
                 print('Disarmed')
                 self.lightGreen.off()
-                self.lightOrange.on()
                 self.alarmStatus = False
 
