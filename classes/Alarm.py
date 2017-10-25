@@ -2,7 +2,7 @@ from threading import Timer
 
 class Alarm(object):
 
-    def __init__(self, successLight, warningLight, alarmLight):
+    def __init__(self, successLight, warningLight, alarmLight, buzzer):
         self.alarmArmed = False
         self.tiggred = True
 
@@ -10,11 +10,14 @@ class Alarm(object):
         self.warningLight = warningLight
         self.alarmLight = alarmLight
 
+        self.buzzer = buzzer
+
     def arm(self):
         self.successLight.on()
         self.alarmArmed = True
 
     def disarm(self):
+        self.buzzer.stop()
         self.alarmLight.off()
         self.warningLight.off()
         self.successLight.off()
@@ -31,3 +34,4 @@ class Alarm(object):
     def soundAlarm(self):
         if self.trigged:
             self.alarmLight.on()
+            self.buzzer.start()

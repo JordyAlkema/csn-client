@@ -1,6 +1,7 @@
 import time
 from classes.sensors import Light
 from classes.sensors import Button
+from classes.sensors import Buzzer
 from classes import Alarm
 
 from classes import Server
@@ -21,7 +22,9 @@ class Client(object):
         self.buttonBlack = Button.Button(26)
         self.buttonBlue = Button.Button(19)
 
-        self.alarm = Alarm.Alarm(self.lightGreen, self.lightOrange, self.lightRed)
+        self.buzzer = Buzzer.Buzzer(18)
+
+        self.alarm = Alarm.Alarm(self.lightGreen, self.lightOrange, self.lightRed, self.buzzer)
 
         self.initLights()
 
