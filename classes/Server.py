@@ -1,12 +1,14 @@
 import requests
+from socketIO_client import SocketIO
 
 class Server(object):
 
-    def __init__(self, httpAddress):
-        self.http = httpAddress
+    def __init__(self, config):
 
-    def get(self, url):
-        return requests.get(self.http + url)
+        self.clientID = config.get('Client', 'clientID')
+        self.http = config.get('Server', 'httpAddress')
+        self.port = config.get('Server', 'port')
 
-    def post(self, url, parameters):
-        return requests.post(self.http + url, parameters)
+        SocketIO(self.http, self.port, params={
+            'client_id': self.clientID
+        })
