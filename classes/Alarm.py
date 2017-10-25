@@ -15,6 +15,8 @@ class Alarm(object):
         self.alarmArmed = True
 
     def disarm(self):
+        self.alarmLight.off()
+        self.warningLight.off()
         self.successLight.off()
         self.alarmArmed = False
         self.triggred = False
@@ -24,6 +26,7 @@ class Alarm(object):
             self.trigged = True
             self.warningLight.on()
             t = Timer(10, self.soundAlarm)
+            t.start()
 
     def soundAlarm(self):
         if self.trigged:
