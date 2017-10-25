@@ -11,7 +11,6 @@ class Client(object):
         self.config = config
         self.server = Server.Server(config)
         self.alarmStatus = False
-        self.alarm = Alarm.Alarm()
 
         self.lightRed = Light.Light(20)
         self.lightOrange = Light.Light(21)
@@ -21,6 +20,8 @@ class Client(object):
         self.button = Button.Button(23)
         self.buttonBlack = Button.Button(26)
         self.buttonBlue = Button.Button(19)
+
+        self.alarm = Alarm.Alarm(self.lightGreen, self.lightOrange, self.lightRed)
 
         self.initLights()
 
