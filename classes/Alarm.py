@@ -45,6 +45,3 @@ class Alarm(object):
             self.server.alarmIsGoingOff()
             self.alarmLight.on()
             self.buzzer.start()
-
-
-
