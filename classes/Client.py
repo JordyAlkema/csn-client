@@ -79,3 +79,7 @@ class Client(object):
     def connected(self):
         print('connected')
         self.alarm.disarm()
+
+    def reconnect(self):
+        print('reconnected')
+        self.alarm.disarm()

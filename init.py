@@ -18,6 +18,7 @@ scheduler = BackgroundScheduler()
 alarmSwitch = scheduler.add_job(client.alarmButton, 'interval', seconds=0.1)
 server.socket.on('alarm', client.serverAlarmRequest)
 server.socket.on('disconnect', client.connectionLost)
+server.socket.on('reconnect', client.reconnect)
 server.socket.on('connect', client.connected)
 
 print("socket established")
