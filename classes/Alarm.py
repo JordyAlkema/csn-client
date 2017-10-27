@@ -31,7 +31,7 @@ class Alarm(object):
     def trigger(self, force = False):
         if self.alarmArmed or force:
             self.server.alarmIsTriggered()
-            self.trigged = True
+            self.tiggred = True
             self.arm()
             self.warningLight.on()
             self.alarmTimer.cancel()
@@ -40,7 +40,7 @@ class Alarm(object):
             
 
     def soundAlarm(self, force = False):
-        if self.trigged or force:
+        if self.tiggred or force:
             self.arm()
             self.server.alarmIsGoingOff()
             self.alarmLight.on()
