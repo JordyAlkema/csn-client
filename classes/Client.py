@@ -70,3 +70,10 @@ class Client(object):
             self.alarm.trigger()
         elif data['status'] == 3:
             self.alarm.soundAlarm()
+
+    def connectionLost(self):
+        self.alarm.trigger()
+
+    def connected(self):
+        print('connected')
+        self.alarm.disarm()

@@ -17,6 +17,8 @@ scheduler = BlockingScheduler()
 
 alarmSwitch = scheduler.add_job(client.alarmButton, 'interval', seconds=0.1)
 server.socket.on('alarm', client.serverAlarmRequest)
+server.socket.on('disconnect', client.connectionLost)
+server.server.on('connect', client.connected())
 
 print("socket established")
 
