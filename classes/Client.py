@@ -72,6 +72,7 @@ class Client(object):
             self.alarm.soundAlarm()
 
     def connectionLost(self):
+        print('connection to server lost!')
         self.alarm.trigger()
 
     def connected(self):
