@@ -13,7 +13,7 @@ config.read("config.ini")
 server = Server.Server(config)
 client = Client.Client(config, server)
 
-scheduler = BlockingScheduler()
+scheduler = BackgroundScheduler()
 
 alarmSwitch = scheduler.add_job(client.alarmButton, 'interval', seconds=0.1)
 server.socket.on('alarm', client.serverAlarmRequest)
