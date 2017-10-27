@@ -34,6 +34,7 @@ class Alarm(object):
             self.trigged = True
             self.warningLight.on()
             self.alarmTimer.cancel()
+            self.alarmTimer = Timer(10, self.soundAlarm)
             self.alarmTimer.start()
             
 
