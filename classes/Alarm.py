@@ -32,6 +32,7 @@ class Alarm(object):
         if self.alarmArmed:
             self.server.alarmIsTriggered()
             self.trigged = True
+            self.arm()
             self.warningLight.on()
             self.alarmTimer.cancel()
             self.alarmTimer = Timer(10, self.soundAlarm)
@@ -40,6 +41,7 @@ class Alarm(object):
 
     def soundAlarm(self):
         if self.trigged:
+            self.arm()
             self.server.alarmIsGoingOff()
             self.alarmLight.on()
             self.buzzer.start()
