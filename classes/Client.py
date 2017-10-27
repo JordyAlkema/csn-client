@@ -62,11 +62,11 @@ class Client(object):
 
     def serverAlarmRequest(self, data):
         print(data)
-        if data['alarm'] == 0:
+        if data['status'] == 0:
             self.alarm.disarm()
-        elif data['alarm'] == 1:
+        elif data['status'] == 1:
             self.alarm.arm()
-        elif data['alarm'] == 2:
+        elif data['status'] == 2:
             self.alarm.trigger()
-        elif data['alarm'] == 3:
+        elif data['status'] == 3:
             self.alarm.soundAlarm()
