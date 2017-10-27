@@ -60,3 +60,13 @@ class Client(object):
                 self.alarmStatus = False
                 print('Disarmed')
 
+    def serverAlarmRequest(self, data):
+        print(data)
+        if data['alarm'] == 0:
+            self.alarm.disarm()
+        elif data['alarm'] == 1:
+            self.alarm.arm()
+        elif data['alarm'] == 2:
+            self.alarm.trigger()
+        elif data['alarm'] == 3:
+            self.alarm.soundAlarm()
