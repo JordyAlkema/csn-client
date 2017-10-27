@@ -21,8 +21,6 @@ server.socket.on('disconnect', client.connectionLost)
 server.socket.on('reconnect', client.reconnect)
 server.socket.on('connect', client.connected)
 
-print("socket established")
-
 scheduler.start()
 
 server.socket.wait()
