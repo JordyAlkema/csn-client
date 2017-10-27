@@ -18,4 +18,6 @@ scheduler = BlockingScheduler()
 alarmSwitch = scheduler.add_job(client.alarmButton, 'interval', seconds=0.1)
 server.socket.on('alarm', client.serverAlarmRequest)
 
+print("socket established")
+
 scheduler.start()
