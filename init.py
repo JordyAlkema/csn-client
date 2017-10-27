@@ -1,7 +1,7 @@
 import configparser;
 import requests;
 from socketIO_client import SocketIO
-from apscheduler.schedulers.background import BlockingScheduler
+from apscheduler.schedulers.background import BackgroundScheduler
 
 from classes import Client
 from classes import Server
@@ -23,3 +23,5 @@ server.socket.on('connect', client.connected)
 print("socket established")
 
 scheduler.start()
+
+server.socket.wait()
