@@ -10,8 +10,8 @@ from classes.sensors import Button
 config = configparser.ConfigParser()
 config.read("config.ini")
 
-client = Client.Client(config)
 server = Server.Server(config)
+client = Client.Client(config, server)
 
 scheduler = BlockingScheduler()
 
