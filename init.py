@@ -1,5 +1,6 @@
 import configparser;
 import requests;
+from socketIO_client import SocketIO
 from apscheduler.schedulers.background import BlockingScheduler
 
 from classes import Client
@@ -15,5 +16,6 @@ server = Server.Server(config)
 scheduler = BlockingScheduler()
 
 alarmSwitch = scheduler.add_job(client.alarmButton, 'interval', seconds=0.1)
+SocketIO.on('alarm', client.serverAlarmRequest)
 
 scheduler.start()
