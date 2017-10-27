@@ -33,6 +33,7 @@ class Alarm(object):
             self.server.alarmIsTriggered()
             self.trigged = True
             self.warningLight.on()
+            self.alarmTimer.cancel()
             self.alarmTimer.start()
             
 
