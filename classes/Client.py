@@ -67,9 +67,9 @@ class Client(object):
         elif status == 1:
             self.alarm.arm()
         elif status == 2:
-            self.alarm.trigger()
+            self.alarm.trigger(True)
         elif status == 3:
-            self.alarm.soundAlarm()
+            self.alarm.soundAlarm(True)
 
     def connectionLost(self):
         print('connection to server lost!')

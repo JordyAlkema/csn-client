@@ -28,8 +28,8 @@ class Alarm(object):
         self.alarmArmed = False
         self.triggred = False
 
-    def trigger(self):
-        if self.alarmArmed:
+    def trigger(self, force = False):
+        if self.alarmArmed or force:
             self.server.alarmIsTriggered()
             self.trigged = True
             self.arm()
@@ -39,8 +39,8 @@ class Alarm(object):
             self.alarmTimer.start()
             
 
-    def soundAlarm(self):
-        if self.trigged:
+    def soundAlarm(self, force = False):
+        if self.trigged or force:
             self.arm()
             self.server.alarmIsGoingOff()
             self.alarmLight.on()
