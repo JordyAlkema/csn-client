@@ -8,9 +8,9 @@ from classes import Server
 
 class Client(object):
 
-    def __init__(self, config):
+    def __init__(self, config, server):
         self.config = config
-        self.server = Server.Server(config)
+        self.server = server
         self.alarmStatus = False
 
         self.lightRed = Light.Light(20)
