@@ -24,7 +24,7 @@ class Client(object):
 
         self.buzzer = Buzzer.Buzzer(18)
 
-        self.alarm = Alarm.Alarm(self.lightGreen, self.lightOrange, self.lightRed, self.buzzer)
+        self.alarm = Alarm.Alarm(self.server, self.lightGreen, self.lightOrange, self.lightRed, self.buzzer)
 
         self.initLights()
 
@@ -50,13 +50,13 @@ class Client(object):
 
         if self.buttonBlue.isBeingClicked():
             if self.alarmStatus == False:
-                print('Armed')
                 self.alarm.arm()
                 self.lightGreen.on()
                 self.alarmStatus = True
+                print('Armed')
             else:
-                print('Disarmed')
                 self.alarm.disarm()
                 self.lightGreen.off()
                 self.alarmStatus = False
+                print('Disarmed')
 
