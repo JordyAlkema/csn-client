@@ -62,6 +62,7 @@ class Client(object):
 
     def serverAlarmRequest(self, data):
         status = int(data['status'])
+        print(status)
         if status == 0:
             self.alarm.disarm()
         elif status == 1:
