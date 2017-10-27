@@ -33,8 +33,8 @@ class Alarm(object):
             self.server.alarmIsTriggered()
             self.trigged = True
             self.warningLight.on()
-            t = Timer(10, self.soundAlarm)
-            t.start()
+            self.alarmTimer.start()
+            
 
     def soundAlarm(self):
         if self.trigged:
