@@ -6,13 +6,11 @@ class Alarm(object):
     def __init__(self, server, successLight, warningLight, alarmLight, buzzer):
         self.alarmArmed = False
         self.tiggred = True
-
         self.server = server
         self.successLight = successLight
         self.warningLight = warningLight
         self.alarmLight = alarmLight
         self.alarmTimer = Timer(10, self.soundAlarm)
-
         self.buzzer = buzzer
 
     def arm(self):
@@ -23,7 +21,7 @@ class Alarm(object):
     def disarm(self):
         self.server.alarmIsDisarmed()
         self.buzzer.stop()
-        self.alarmTimer.stop()
+        self.alarmTimer.cancel()
         self.alarmLight.off()
         self.warningLight.off()
         self.successLight.off()
