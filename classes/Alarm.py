@@ -40,7 +40,7 @@ class Alarm(object):
             
 
     def soundAlarm(self):
-        if self.trigged:
+        if self.tiggred:
             self.arm()
             self.server.alarmIsGoingOff()
             self.alarmLight.on()
