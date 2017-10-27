@@ -61,14 +61,14 @@ class Client(object):
                 print('Disarmed')
 
     def serverAlarmRequest(self, data):
-        print(data)
-        if data['status'] == 0:
+        status = int(data['status'])
+        if status == 0:
             self.alarm.disarm()
-        elif data['status'] == 1:
+        elif status == 1:
             self.alarm.arm()
-        elif data['status'] == 2:
+        elif status == 2:
             self.alarm.trigger()
-        elif data['status'] == 3:
+        elif status == 3:
             self.alarm.soundAlarm()
 
     def connectionLost(self):
