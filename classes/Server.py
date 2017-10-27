@@ -23,6 +23,7 @@ class Server(object):
 
     # 0 = off, 1 = armed, 2 = triggered, 3 = going off
     def alarm(self, status):
+        print(status)
         self.socket.emit('alarm', {
             'status': status
         })
